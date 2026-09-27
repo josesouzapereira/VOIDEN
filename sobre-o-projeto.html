@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>VOIDEN® — SOBRE O PROJETO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#050505; --carbon:#111111; --bone:#e8e6e0; --concrete:#8a8a84; --signal:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--bone);font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+.noise{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:50;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+  animation:noise .15s steps(2) infinite}
+@keyframes noise{0%{transform:translate(0,0)}25%{transform:translate(2%,-1%)}50%{transform:translate(-1%,2%)}75%{transform:translate(1%,1%)}to{transform:translate(-2%,-2%)}}
+
+/* ===== NAV ===== */
+.nav{height:74px;position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;
+  padding:0 4vw;border-bottom:1px solid rgba(255,255,255,.12);z-index:100;background:rgba(5,5,5,.75);backdrop-filter:blur(6px)}
+.brand{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;letter-spacing:-.04em}
+.brand span{font:8px "DM Mono";vertical-align:top;margin-left:3px;color:var(--concrete)}
+.nav-tag{font:9px "DM Mono";letter-spacing:.15em;color:var(--concrete)}
+.back-link{font:10px "DM Mono";letter-spacing:.12em;border:1px solid rgba(255,255,255,.3);padding:9px 16px;border-radius:100px;transition:.3s}
+.back-link:hover{background:var(--bone);color:var(--void)}
+
+/* ===== HERO ===== */
+.hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:16vh 5vw 8vh;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 70% 30%,rgba(138,138,132,.14),transparent 45%),
+  linear-gradient(160deg,#070707 15%,#151515 55%,#050505 90%)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 49.9%,rgba(255,255,255,.05) 50%,transparent 50.2%);background-size:100% 7px;opacity:.25}
+.eyebrow{font:10px "DM Mono";letter-spacing:.18em;color:var(--concrete);position:relative;z-index:2}
+.hero-title{font-family:"Space Grotesk",sans-serif;font-size:clamp(2rem,8vw,7rem);font-weight:700;line-height:.95;letter-spacing:-.03em;margin:18px 0 28px;position:relative;z-index:2}
+.hero-title em{font-style:normal;color:transparent;-webkit-text-stroke:1px var(--bone)}
+.hero-desc{max-width:560px;font-size:clamp(.95rem,1.4vw,1.15rem);line-height:1.6;color:var(--concrete);position:relative;z-index:2}
+.hero-meta{margin-top:60px;display:flex;gap:8vw;flex-wrap:wrap;position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.14);padding-top:22px}
+.hero-meta div{display:grid;gap:6px}
+.hero-meta span{font:9px "DM Mono";letter-spacing:.12em;color:var(--concrete)}
+.hero-meta strong{font-family:"Space Grotesk",sans-serif;font-size:15px;font-weight:500}
+
+/* ===== TICKER ===== */
+.ticker{height:52px;overflow:hidden;border-top:1px solid #292929;border-bottom:1px solid #292929;display:flex;align-items:center;background:var(--bone);color:var(--void)}
+.ticker-track{display:flex;gap:30px;align-items:center;white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.14em;font-family:"DM Mono";animation:ticker 22s linear infinite}
+.ticker b{font-size:15px}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ===== SECTIONS ===== */
+section{padding:12vh 5vw}
+.section-index{font:10px "DM Mono";letter-spacing:.16em;color:var(--concrete);margin-bottom:5vh}
+.section-title{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.6rem,5vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:5vh}
+.section-title i{font-style:normal;color:var(--concrete)}
+
+/* explain grid */
+.explain{background:var(--bone);color:var(--void)}
+.explain .section-index,.explain .label{color:#555}
+.explain-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw}
+.explain-grid p{font-size:clamp(1rem,1.6vw,1.3rem);line-height:1.55;margin-bottom:22px}
+.explain-grid p:last-child{margin-bottom:0}
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.tag{font:9px "DM Mono";letter-spacing:.1em;border:1px solid #999;padding:8px 14px;border-radius:100px}
+
+/* system-style spec block */
+.spec{background:var(--void)}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#292929;border:1px solid #292929}
+.spec-item{background:var(--void);padding:40px 30px}
+.spec-item span{font:9px "DM Mono";color:var(--concrete);letter-spacing:.12em}
+.spec-item h3{font-family:"Space Grotesk",sans-serif;font-size:18px;font-weight:500;margin:16px 0 12px}
+.spec-item p{font-size:13px;line-height:1.6;color:#aaa}
+
+/* label / tech sheet */
+.techsheet{background:#0c0c0c;border-top:1px solid #292929;border-bottom:1px solid #292929}
+.techsheet-inner{max-width:640px;margin:0 auto;border:1px solid #333;padding:6vh 5vw}
+.techsheet-row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid #292929;font:11px "DM Mono";letter-spacing:.08em}
+.techsheet-row:last-child{border-bottom:0}
+.techsheet-row span:first-child{color:var(--concrete)}
+.techsheet-title{font:9px "DM Mono";letter-spacing:.2em;color:var(--concrete);margin-bottom:30px}
+
+/* manifesto style statement */
+.statement{min-height:60vh;display:flex;align-items:center;background:var(--bone);color:var(--void)}
+.statement-lines{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.7rem,6.5vw,6rem);font-weight:700;letter-spacing:-.03em;line-height:1.05}
+.statement-lines span{display:block}
+.statement-lines span:nth-child(2){color:transparent;-webkit-text-stroke:1.5px var(--void);margin-left:6vw}
+
+/* contact / final */
+.final{min-height:70vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.final-bg{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 50%,#161616 0,transparent 45%),#080808}
+.final h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.8rem,7vw,6rem);font-weight:700;letter-spacing:-.03em;line-height:1;position:relative;z-index:2}
+.final p{max-width:520px;color:var(--concrete);margin:26px 0 40px;font-size:15px;line-height:1.6;position:relative;z-index:2}
+.final-actions{display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:2}
+.btn{font:10px "DM Mono";letter-spacing:.12em;padding:16px 26px;border:1px solid #999;transition:.3s;display:inline-flex;align-items:center;gap:14px}
+.btn:hover{background:var(--bone);color:var(--void)}
+.btn.solid{background:var(--bone);color:var(--void)}
+.btn.solid:hover{background:transparent;color:var(--bone)}
+
+footer{background:var(--bone);color:var(--void);padding:40px 5vw 22px}
+.footer-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-bottom:40px}
+.footer-top p{font:10px "DM Mono";letter-spacing:.12em}
+.footer-bottom{border-top:1px solid #aaa;padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font:8px "DM Mono";color:#666}
+
+@media(max-width:900px){
+  .explain-grid{grid-template-columns:1fr;gap:40px}
+  .spec-grid{grid-template-columns:1fr}
+  .hero-meta{gap:10vw}
+  .nav-tag{display:none}
+}
+@media(max-width:600px){
+  .nav{height:60px;padding:0 5vw}
+  .back-link{padding:7px 12px;font-size:8px}
+  .hero{padding:14vh 5vw 7vh}
+  .hero-meta{gap:6vw;flex-wrap:wrap}
+  .hero-meta div{flex:1 1 calc(50% - 3vw)}
+  .statement{min-height:40vh;padding:8vh 5vw}
+  .statement-lines{font-size:clamp(1.5rem,9vw,3rem)}
+  section{padding:9vh 5vw}
+  .spec-item{padding:28px 20px}
+  .techsheet-inner{padding:5vh 4vw}
+  .techsheet-row{font-size:9px}
+  .final-actions{flex-direction:column}
+  .btn{text-align:center;justify-content:center}
+}
+@media(max-width:390px){
+  .hero-title{font-size:clamp(1.7rem,10vw,3rem)}
+  .statement-lines{font-size:clamp(1.4rem,10vw,2.5rem)}
+  .section-title{font-size:clamp(1.5rem,9vw,2.5rem)}
+}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<header class="nav">
+  <a href="index.html" class="brand">VOIDEN<span>®</span></a>
+  <span class="nav-tag">PROJECT FILE / STUDY-001</span>
+  <a href="index.html" class="back-link">← VOLTAR AO SITE</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <p class="eyebrow">PROJECT FILE / SOBRE ESTE TRABALHO</p>
+    <h1 class="hero-title">THIS IS<br><em>A STUDY,</em><br>NOT A STORE.</h1>
+    <p class="hero-desc">VOIDEN é uma marca fictícia, criada como estudo de branding, direção de arte e desenvolvimento web — parte do portfólio de Pietro, designer gráfico e produtor cultural. Nenhum produto aqui é real ou está à venda.</p>
+    <div class="hero-meta">
+      <div><span>STATUS</span><strong>PORTFOLIO / ESTUDO</strong></div>
+      <div><span>TIPO</span><strong>BRANDING + FRONT-END</strong></div>
+      <div><span>ANO</span><strong>2026</strong></div>
+      <div><span>DISCIPLINAS</span><strong>ID. VISUAL / UI / COPY</strong></div>
+    </div>
+  </section>
+
+  <section class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>NOT A REAL BRAND</span><b>✳</b><span>PORTFOLIO PROJECT</span><b>✳</b><span>DESIGN STUDY</span><b>✳</b><span>NO PRODUCTS FOR SALE</span><b>✳</b>
+      <span>NOT A REAL BRAND</span><b>✳</b><span>PORTFOLIO PROJECT</span><b>✳</b><span>DESIGN STUDY</span><b>✳</b><span>NO PRODUCTS FOR SALE</span><b>✳</b>
+    </div>
+  </section>
+
+  <section class="explain">
+    <div class="section-index">[ 01 — O QUE É ESTE PROJETO ]</div>
+    <h2 class="section-title">POR QUE<br><i>VOIDEN EXISTE.</i></h2>
+    <div class="explain-grid">
+      <div>
+        <p>VOIDEN nasceu como um exercício de construção de marca do zero: essência, posicionamento, paleta, tipografia, sistema gráfico, direção fotográfica e arquitetura de conteúdo — tudo pensado como se fosse um streetwear independente real.</p>
+        <p>A partir desse branding, o projeto evoluiu para um site completo, desenvolvido para simular a experiência de uma loja/drop underground: home, produtos, editorial, arquivo e manifesto.</p>
+      </div>
+      <div>
+        <p>O objetivo é demonstrar, em um caso só, a ponte entre identidade visual e front-end — como uma personalidade de marca (fria, minimalista, provocativa) se traduz em decisões concretas de layout, tipografia, movimento e fotografia.</p>
+        <p>Serve como peça de portfólio para apresentar processo criativo completo: da estratégia de marca à interface funcional.</p>
+        <div class="tag-row">
+          <span class="tag">BRAND IDENTITY</span>
+          <span class="tag">ART DIRECTION</span>
+          <span class="tag">UI / UX</span>
+          <span class="tag">HTML / CSS / JS</span>
+          <span class="tag">CASE DE PORTFÓLIO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spec">
+    <div class="section-index">[ 02 — O QUE FOI DESENVOLVIDO ]</div>
+    <h2 class="section-title">ESCOPO<br><i>DO ESTUDO.</i></h2>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <span>01</span>
+        <h3>IDENTIDADE DE MARCA</h3>
+        <p>Essência, posicionamento, personalidade, paleta (Void Black, Carbon, Bone, Concrete, Signal), tipografia e sistema gráfico industrial.</p>
+      </div>
+      <div class="spec-item">
+        <span>02</span>
+        <h3>ARQUITETURA DE CONTEÚDO</h3>
+        <p>Estrutura de "drops" fictícios, manifesto, arquivo de coleções passadas e sistema de etiquetas técnicas no estilo VDN-001-04.</p>
+      </div>
+      <div class="spec-item">
+        <span>03</span>
+        <h3>SITE FUNCIONAL</h3>
+        <p>Front-end responsivo em HTML, CSS e JavaScript puro — loader, cursor customizado, modais de produto e microinterações.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="techsheet">
+    <div class="techsheet-inner">
+      <p class="techsheet-title">PROJECT ID / VDN-STUDY-001</p>
+      <div class="techsheet-row"><span>PROJETO</span><span>VOIDEN®</span></div>
+      <div class="techsheet-row"><span>NATUREZA</span><span>MARCA FICTÍCIA / ESTUDO</span></div>
+      <div class="techsheet-row"><span>AUTOR</span><span>PIETRO</span></div>
+      <div class="techsheet-row"><span>ÁREA</span><span>DESIGN GRÁFICO / PRODUÇÃO CULTURAL</span></div>
+      <div class="techsheet-row"><span>STATUS</span><span>USO EXCLUSIVO PARA PORTFÓLIO</span></div>
+      <div class="techsheet-row"><span>COMERCIALIZAÇÃO</span><span>INEXISTENTE</span></div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="statement-lines">
+      <span>MADE TO</span>
+      <span>SHOW SKILL,</span>
+      <span>NOT TO SELL.</span>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="final-bg"></div>
+    <span class="eyebrow">VOIDEN® / PROJECT FILE</span>
+    <h2>SEE THE<br>FULL <i style="font-style:normal;color:transparent;-webkit-text-stroke:1px #eee">CASE.</i></h2>
+    <p>Navegue pelo site completo da marca fictícia ou volte para conhecer mais projetos do portfólio.</p>
+    <div class="final-actions">
+      <a href="index.html" class="btn solid">EXPLORAR O SITE VOIDEN <span>↗</span></a>
+      <a href="#top" class="btn">VOLTAR AO TOPO <span>↑</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <a href="index.html" class="brand">VOIDEN<span>®</span></a>
+    <p>PROJETO DE ESTUDO / PORTFÓLIO — NÃO É UMA MARCA REAL</p>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PIETRO — PORTFÓLIO</span>
+    <span>VOIDEN É UM PROJETO FICTÍCIO</span>
+    <span>TODOS OS DIREITOS RESERVADOS AO AUTOR</span>
+  </div>
+</footer>
+
+</body>
+</html>
